@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "guist-ui",
   "version": "1.0.0",
-  "description": "Mern Demo",
+  "description": "the guist ui for game sessions",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
