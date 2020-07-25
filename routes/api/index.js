@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-// Books routes
-router.use("/sessions", require("./books.routes"));
+// sessions routes
+router.use("/sessions", require("./sessions.routes"));
 
 module.exports = router;

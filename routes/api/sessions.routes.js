@@ -1,21 +1,15 @@
 const router = require("express").Router();
-// const { booksController } = require("../../controllers");
-console.log(booksController);
+const { session:{ getAllSessions, createSession }, game:{ addGame, createGame } } = require("../../controllers");
 
-// Matches with '/api/sessions'
-// router
-//   .route("/")
-//   .get(booksController.findAll)
-//   .post(booksController.save);
+// matches with /api/sessions
+router
+  .route('/')
+  .get(getAllSessions)
+  .post(createSession)
 
-// Matches with '/api/sessions/:id'
-// router
-//   .route("/:id")
-//   .get(booksController.findById)
-//   .delete(booksController.delete);
+router
+  .route('/game')
+  .post(createGame)
+  .patch(addGame)
 
-// Matches with '/api/sessions/check'
-// router
-//   .route('/check')
-//   .post(booksController.crossCheck)
 module.exports = router;

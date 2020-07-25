@@ -2,13 +2,16 @@
 require('dotenv').config();
 
 // require all dependencies
-const express = require("express");
-const path = require("path");
+const express = require('express');
+const cors = require('cors');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
 // Middleware
 // ==============================================================================
+//configure cors
+app.use(cors());
+
 // configure app to use data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

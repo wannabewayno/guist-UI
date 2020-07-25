@@ -15,4 +15,5 @@ controllerFiles.forEach(controller => {
 });
 
 // Exports our controllers for use within the app
+console.log(controllers);
 module.exports = controllers;

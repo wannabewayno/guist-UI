@@ -5,11 +5,7 @@ const db = {}
 
 // get's all models that's not our index.js file
 // we will assume this file only contains .js extension
-const schemas = fs.readdirSync(__dirname).filter(schema => {
-    if(schema.indexOf('index.js') === -1){
-        return schema;
-    }
-})
+const schemas = fs.readdirSync(__dirname).filter(schema => schema !== 'index.js')
 
 // loads the empty db object with all our models
 schemas.forEach(schema => {
@@ -18,4 +14,5 @@ schemas.forEach(schema => {
 });
 
 // Exports our database for use within the app
+console.log(db);
 module.exports = db;
