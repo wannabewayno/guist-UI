@@ -7,6 +7,7 @@ export default function Home(){
 
     return (
         <section style={{padding:'1.5rem', color:'white'}}>
+            <a href='session'>CLICK ME</a>
             <h1 style={{textAlign:'center'}}>Connect to a Session</h1>
             <FormContainer>
                 <SearchBar name={connectSession}/>
@@ -17,6 +18,7 @@ export default function Home(){
                     style={{margin:'15px auto'}}
                 />
             </FormContainer>
+            
         </section>
     )
 }
