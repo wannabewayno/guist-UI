@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import useBackgroundImageRouter from './hooks/useBackgroundImageRouter';
+import { useBackgroundImageRouter } from 'grass-roots-react';
 import Header from './components/Header';
 import Session from './pages/Session';
 import Home from './pages/Home';
