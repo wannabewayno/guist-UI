@@ -37,20 +37,20 @@ sessionSchema.pre('save', async function(next){
                     this.ranks.set(stat,[]);
                 }
                 
-                const { gamerTag, team } = score;
+                const { gamertag, team } = score;
                 const total = stats[stat];
 
                 const rankArray = this.ranks.get(stat)
-                if(rankArray.some(rank => rank.gamerTag === gamerTag)){
+                if(rankArray.some(rank => rank.gamertag === gamertag)){
                     rankArray = rankArray.map( rank => {
-                        if(rank.gamerTag === score.gamerTag){
+                        if(rank.gamertag === score.gamertag){
                             rank.team = team;
                             rank.total = total;
                             return rank;
                         } 
                     });
                 } else {
-                    rankArray.push({ gamerTag, team, total });
+                    rankArray.push({ gamertag, team, total });
                 }
                 this.ranks.set(stat,rankArray);
             }
@@ -67,16 +67,16 @@ sessionSchema.pre('save', function(next){
             const rankedKills = this.ranks.get('kills');
             const rankedDeaths = this.ranks.get('deaths');
             
-            const KDRatios = rankedKills.map(({gamerTag, total, team}) => {
+            const KDRatios = rankedKills.map(({gamertag, total, team}) => {
                 const kills = total;
-                const deaths = rankedDeaths.find( player => gamerTag === player.gamerTag ).total
+                const deaths = rankedDeaths.find( player => gamertag === player.gamertag ).total
                 
                 let KDRatio;
                 if(deaths === 0) KDRatio = kills
                 else KDRatio = Math.round((kills/deaths)*100)/100
 
                 return {
-                    gamerTag,
+                    gamertag,
                     team,
                     total:KDRatio
                 }

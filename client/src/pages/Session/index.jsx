@@ -12,6 +12,7 @@ export default function Session() {
   const [ sessionID, setSessionID ] = useState(undefined);
   const [ disableCreateSession, setDisableCreateSession ] = useState(false);
   const [ disableAddGame, setDisableAddGame ] = useState(true);
+ const [ gamertags, setGamertags ] = useState([]);
 
   function createNewSession(formData){
     console.log('is this firirng?');
@@ -50,13 +51,12 @@ export default function Session() {
   useEffect(()=>console.log(disableCreateSession),[disableCreateSession])
   useEffect(()=>console.log(liftedStates),[liftedStates])
 
- const [ gamertags, setGamertags ] = useState([]) 
 
   return (
     <>
     <Container>
       <ul style={{margin:'0 auto',position:'relative'}}>
-      	{gamertags.map(({gamerTag,team},index) => (<Gamertag rank={index+1} gamertag={gamerTag} team={team} key={index}/>))}
+      	{gamertags.map(({gamertag,team},index) => (<Gamertag rank={index+1} gamertag={gamertag} team={team} key={index}/>))}
       </ul>
 
       <FormContainer onSubmit={createNewSession}>
