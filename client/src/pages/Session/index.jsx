@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Container, FormContainer, SearchBar, SubmitButton, ShowOnClick, InlineContainer, useLiftState } from 'grass-roots-react';
+import { colours, names } from '../../content';
 import Gamertag from '../../components/Gamertag';
-import { colours, names, gamertags } from '../../content';
 import API from '../../utils/API';
 const { sessionName } = names;
 const { salmon } = colours;

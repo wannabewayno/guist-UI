@@ -16,3 +16,8 @@ code {
   font-family: 'MuseoModerno';
   src: local('MuseoModerno'), url(./fonts/MuseoModerno/static/MuseoModerno-Light.ttf) format('ttf');
 }
+
+a {
+  outline:none;
+  text-decoration:none;
+}
