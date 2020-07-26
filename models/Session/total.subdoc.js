@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const totalSchema =  new Schema({
-    gamerTag: String,
+    gamertag: String,
     team: String,
     total: Number
 })

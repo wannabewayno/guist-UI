@@ -16,7 +16,7 @@ function createScore() {
     if(    kills >= 25) deaths = randomNumber([0,2]);  
 
     return {
-        gamerTag: faker.internet.userName(),
+        gamertag: faker.internet.userName(),
         team: randomTeam(),
         stats: {
             kills,

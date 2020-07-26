@@ -12,7 +12,7 @@ export default function Session() {
   const [ sessionID, setSessionID ] = useState(undefined);
   const [ disableCreateSession, setDisableCreateSession ] = useState(false);
   const [ disableAddGame, setDisableAddGame ] = useState(true);
- const [ gamertags, setGamertags ] = useState([]);
+  const [ gamertags, setGamertags ] = useState([]);
 
   function createNewSession(formData){
     console.log('is this firirng?');

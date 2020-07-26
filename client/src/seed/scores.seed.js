@@ -17,7 +17,7 @@ function createScore() {
     }
 
     return {
-        gamerTag: faker.internet.avatar(),
+        gamertag: faker.internet.avatar(),
         team: randomTeam(),
         stats: {
             kills,

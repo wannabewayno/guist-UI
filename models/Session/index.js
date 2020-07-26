@@ -40,14 +40,16 @@ sessionSchema.pre('save', async function(next){
                 const { gamertag, team } = score;
                 const total = stats[stat];
 
-                const rankArray = this.ranks.get(stat)
+                let rankArray = this.ranks.get(stat)
                 if(rankArray.some(rank => rank.gamertag === gamertag)){
                     rankArray = rankArray.map( rank => {
                         if(rank.gamertag === score.gamertag){
                             rank.team = team;
                             rank.total = total;
                             return rank;
-                        } 
+                        } else {
+                            return rank;
+                        }
                     });
                 } else {
                     rankArray.push({ gamertag, team, total });
