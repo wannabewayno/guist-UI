@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const scoreSchema = new Schema({
-    gamerTag: String,
+    gamertag: String,
     team: String,
     stats:{
         kills: Number,
@@ -12,11 +12,9 @@ const scoreSchema = new Schema({
     }
 })
 
-scoreSchema.pre(['save','create'], function(next){
-    const { stats:{ kills, deaths } } = this;
-    this.stats.KDRatio = kills/deaths;
-    
-    next()
-});
+scoreSchema.virtual('KDRatio').get(function(){
+    const { stats:{ kills, deaths } } = this
+    return kills/deaths;
+})
 
 

@@ -12,8 +12,7 @@ module.exports = {
     createSession(req,res){
         console.log('this is being hit');
         console.log(req.body);
-        const session = new Session(req.body);
-        session.save()
+        Session.create(req.body)
         .then(response => res.json(response))
         .catch(error => res.status(422).json(error.response))
     }

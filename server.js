@@ -4,11 +4,17 @@ require('dotenv').config();
 // require all dependencies
 const express = require('express');
 const cors = require('cors');
-const PORT = process.env.PORT || 3001;
+const compression = require('compression');
+
+// Set up the express app
 const app = express();
 
 // Middleware
 // ==============================================================================
+
+// use compression
+app.use(compression())
+
 //configure cors
 app.use(cors());
 
@@ -27,6 +33,9 @@ app.use(require('./routes'))
 
 // Start the App
 // ==============================================================================
+// Define the port to run on
+const PORT = process.env.PORT || 3001;
+
 // Connect to MongoDB
 require('./config/mongoConnect')
 // Launch App
