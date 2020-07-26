@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Container, FormContainer, SearchBar, SubmitButton, ShowOnClick, InlineContainer, useLiftState } from 'grass-roots-react';
 import { colours, names } from '../../content';
-import Gamertag from '../../components/Gamertag';
+import Rank from '../../components/Rank';
 import API from '../../utils/API';
 const { sessionName } = names;
 const { salmon } = colours;
@@ -56,7 +56,7 @@ export default function Session() {
     <>
     <Container>
       <ul style={{margin:'0 auto',position:'relative'}}>
-      	{gamertags.map(({gamertag,team},index) => (<Gamertag rank={index+1} gamertag={gamertag} team={team} key={index}/>))}
+      	{gamertags.map(({gamertag,team},index) => (<Rank rank={index+1} text={gamertag} team={team} key={index}/>))}
       </ul>
 
       <FormContainer onSubmit={createNewSession}>

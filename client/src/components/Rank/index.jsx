@@ -21,7 +21,7 @@ function parseTeam(team){
     }
 }
 
-export default function Gamertag({ gamertag, rank, team }) {
+export default function Rank({ text, rank, team }) {
 
     return (
         <li style={containerStyle}>
@@ -29,7 +29,7 @@ export default function Gamertag({ gamertag, rank, team }) {
                 {parseRank(rank)}
             </p>
             <p style={{...gamertagStyle, backgroundColor:parseTeam(team), borderColor:parseTeam(team)}}>
-                {gamertag}
+                {text}
             </p>
         </li>
     )
