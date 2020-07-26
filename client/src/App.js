@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import useBackgroundImageRouter from './hooks/useBackgroundImageRouter';
 import Header from './components/Header';
-import Session from './pages/Session';
+// import Session from './pages/Session';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import { backgroundImageMap } from './content'
@@ -23,7 +23,7 @@ export default function App() {
               <Home/>
             </Route>
             <Route exact path="/session">
-              <Session/>
+              {/* <Session/> */}
             </Route>
             <Route>
               <NotFound/>
