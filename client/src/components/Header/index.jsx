@@ -15,9 +15,9 @@ export default function Header({
 
     return (
         <header style={headerCSS}>
-            <h3 style={headlineStyle}>
+            <a style={headlineStyle} href='/'>
                 {text}
-            </h3>
+            </a>
         </header>
     )
 }
