@@ -12,7 +12,7 @@ require('../config/mongoConnect') // connect to mongo atlas
     await Game.deleteMany({})
 
     // Now we set up one giant for loop and seed some data
-    for (let index = 0; index < 2; index++) {
+    for (let index = 0; index < 12; index++) {
         console.log('START OF LOOP');
         console.log(['CREATING NEW SESSION']);
         //create a session
@@ -25,7 +25,7 @@ require('../config/mongoConnect') // connect to mongo atlas
         console.log('Players in this session:',players);
 
         // generate a random number of games from 6 - 24
-        const numberOfGames = randomNumber([1,3]);
+        const numberOfGames = randomNumber([6,18]);
         console.log('NUMBER OF GAMES:',numberOfGames);
 
         for (let iterator = 0; iterator < numberOfGames; iterator++) {
