@@ -11,7 +11,6 @@ export default {
         })
     },
     async createGame(sessionID) {
-        console.log('API:',sessionID);
         return await fetch('/api/sessions/game',{
             headers:{
                 'Content-Type':'application/json',
@@ -21,6 +20,10 @@ export default {
             mode:'cors',
             body: JSON.stringify({sessionID})
         })
+    },
+    async connectSession(formData) {
+        console.log(formData);
+        const { sessionPhrase } = formData;
+        return await fetch(`/api/sessions/${sessionPhrase}`)
     }
-
 }

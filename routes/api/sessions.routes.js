@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { session:{ getAllSessions, createSession }, game:{ createGame, createGame2 } } = require("../../controllers");
+const { session:{ getAllSessions, createSession, getSession }, game:{ createGame, createGame2 } } = require("../../controllers");
 
 // matches with /api/sessions
 router
@@ -11,5 +11,10 @@ router
 router
   .route('/game')
   .post(createGame2)
+
+// matches with /api/sessions/:sessionPhrase
+router
+  .route('/:sessionPhrase')
+  .get(getSession)
 
 module.exports = router;

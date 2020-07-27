@@ -6,26 +6,26 @@ import API from '../../utils/API';
 const { sessionName } = names;
 const { salmon } = colours;
 
-export default function Session() {
-
+export default function Session({sessionID}) {
+  console.log('SESSION ID:',sessionID);
+  const [ thisSession ] = useState(sessionID);
   const [ liftedStates, liftUpState ] = useLiftState();
-  const [ sessionID, setSessionID ] = useState(undefined);
   const [ disableCreateSession, setDisableCreateSession ] = useState(false);
   const [ disableAddGame, setDisableAddGame ] = useState(true);
   const [ gamertags, setGamertags ] = useState([]);
 
   function createNewSession(formData){
-    console.log('is this firirng?');
+
     liftedStates.setShowOnClickState(false); //hide the input
     setDisableCreateSession(true); // disable the button
     console.log(formData);
+
     API.createSession(formData)
     .then(response => response.json())
     .then(({ _id }) => {
       //session created enable the add Game button
       setDisableAddGame(false)
       console.log(_id);
-      setSessionID(_id) // store sessionID 
     })
     .catch(error => {
       liftedStates.setShowOnClickState(true); // show the input again
@@ -36,7 +36,7 @@ export default function Session() {
 
   function addGame(){
     setDisableAddGame(true)
-    API.createGame(sessionID)
+    API.createGame(thisSession)
     .then(response => response.json())
     .then(session => {
       console.log('Session:',session);
@@ -47,7 +47,7 @@ export default function Session() {
       console.log(error) // catch any errors
     });
   }
-
+  useEffect(() => console.log(thisSession),[thisSession])
   useEffect(()=>console.log(disableCreateSession),[disableCreateSession])
   useEffect(()=>console.log(liftedStates),[liftedStates])
 

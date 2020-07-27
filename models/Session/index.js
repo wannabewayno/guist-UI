@@ -1,13 +1,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+
 const Game = require('../Game');
 const totalSubDoc = require('./total.subdoc');
+const sessionPhrase = require('./lib/sessionPhrase');
 
 
 // Schema
 // ==============================================================================
 
 const sessionSchema = new Schema({
+    // unique phrase
+    sessionPhrase: { type:String, unqiue:true, default: () => sessionPhrase(3) },
     name:{ type:String, required:true },
     games:[ { type: mongoose.Schema.Types.ObjectId, ref: 'Game' } ],
     ranks: {
@@ -17,6 +21,7 @@ const sessionSchema = new Schema({
 },{
     timestamps:true
 });
+
 
 // everytime we add a Game, we re-calculate the Rank
 // we need to add the last game's scores to the total

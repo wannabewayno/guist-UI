@@ -1,16 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { useBackgroundImageRouter } from 'grass-roots-react';
+import { useBackgroundImageRouter, useLiftState } from 'grass-roots-react';
 import Header from './components/Header';
 import Session from './pages/Session';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import { backgroundImageMap } from './content'
-
+import API from './utils/API';
 
 export default function App() {
 
-  useBackgroundImageRouter(backgroundImageMap);
+ useBackgroundImageRouter(backgroundImageMap);
+  
+ const [sessionID, setSessionID] = useState(undefined);
+
+  function connectSession(formData){
+
+      API.connectSession(formData)
+      .then(response => response.json())
+      .then(session => {
+
+          if(session.length === 1) { // found unique session
+            setSessionID(session[0]._id);
+          } else {
+            setSessionID(undefined);
+          }
+      })
+      .catch(error => {
+          console.log(error) // catch any errors
+      });
+  }
+
+  useEffect(() => {
+      if(sessionID){
+        window.location.pathname = '/session'
+      }
+  },[sessionID])
 
   return (
     <Router>
@@ -20,11 +45,12 @@ export default function App() {
           />
           <Switch>
             <Route exact path={["/", "/home"]}>
-              <Home/>
+              <Home connectSession={connectSession}/>
             </Route>
-            <Route exact path="/session">
-              <Session/>
-            </Route>
+            <Route
+              exact path="/session"
+              render={routeProps => <Session {...routeProps} sessionID={sessionID} />}
+            />
             <Route>
               <NotFound/>
             </Route>

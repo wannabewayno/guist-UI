@@ -1,6 +1,6 @@
 const faker = require('faker');
 const randomTeam = require('./lib/randomTeam');
-const randomNumber = require('./lib/randomNumber');
+const randomNumber = require('../lib/randomNumber');
 
 function createScore() {
     const kills = randomNumber([0,30])
