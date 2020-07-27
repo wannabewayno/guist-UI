@@ -1,8 +1,6 @@
-const faker = require('faker');
-const randomTeam = require('./lib/randomTeam');
-const randomNumber = require('../lib/randomNumber');
+const randomNumber = require('../../lib/randomNumber');
 
-function createScore() {
+module.exports = () => {
     const kills = randomNumber([0,30])
     const assists = randomNumber([0,5])
     const score = kills*100 + assists*10;
@@ -16,21 +14,9 @@ function createScore() {
     if(    kills >= 25) deaths = randomNumber([0,2]);  
 
     return {
-        gamertag: faker.internet.userName(),
-        team: randomTeam(),
-        stats: {
-            kills,
-            deaths,
-            score,
-            assists,
-        }
+        kills,
+        deaths,
+        score,
+        assists,
     }
-}
-
-module.exports = function generateScores(numberOfPlayers){
-    const scores = [];
-    for (let index = 0; index < numberOfPlayers; index++) {
-        scores.push(createScore())
-    }
-    return scores;
 }
