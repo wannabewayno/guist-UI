@@ -8,9 +8,9 @@ router
   .post(createSession)
 
 // matches with /api/sessions/game
-router
-  .route('/game')
-  .post(createGame)
+// router
+//   .route('/game')
+//   .post(createGame)
 
 // matches with /api/sessions/phrase/:sessionPhrase
 router

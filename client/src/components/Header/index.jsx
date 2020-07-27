@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation, useParams } from 'react-router-dom'; 
 import { headlineStyle, headerStyle } from './style';
 
 export default function Header({
@@ -10,7 +11,10 @@ export default function Header({
     height = '10vh',
     style = {}
 }){
-
+    const params = useParams();
+    console.log(params);
+    const location = useLocation();
+    console.log(location);
     const headerCSS = { ...headerStyle, color:textColor, height, backgroundColor:color,...style }
 
     return (

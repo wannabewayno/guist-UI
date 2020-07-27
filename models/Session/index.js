@@ -35,7 +35,7 @@ sessionSchema.pre('save', async function(next){
             if(!this.ranks){
                 this.ranks = {}
             }
-            console.log('Current Stats',stats);
+            
             for (const stat in stats) {
 
                 if(!this.ranks.has(stat)){
@@ -46,17 +46,19 @@ sessionSchema.pre('save', async function(next){
                 const total = stats[stat];
 
                 let rankArray = this.ranks.get(stat)
+                console.log('SHOULD RETURN TRUE:',rankArray.some(rank => rank.gamertag === gamertag));
                 if(rankArray.some(rank => rank.gamertag === gamertag)){
+                    console.log(['EVERY OTHER GAME']);
                     rankArray = rankArray.map( rank => {
-                        if(rank.gamertag === score.gamertag){
-                            rank.team = team;
-                            rank.total = total;
-                            return rank;
+                        if(rank.gamertag === gamertag){
+                            const newTotal = rank.total + total;
+                            return { gamertag, team, total:newTotal };
                         } else {
                             return rank;
                         }
                     });
                 } else {
+                    console.log(['1st game only']);
                     rankArray.push({ gamertag, team, total });
                 }
                 this.ranks.set(stat,rankArray);
@@ -69,18 +71,18 @@ sessionSchema.pre('save', async function(next){
 // We can create a Kill/Death ratio Rank from the kills and deaths rank;
 sessionSchema.pre('save', function(next){
     if(this.games.length > 0){
-        if (this.ranks.has('kills') && this.ranks.has('deaths') && this.games.length > 0) {
+        if (this.ranks.has('kills') && this.ranks.has('deaths')) {
             // get the kills and deaths rank (contains totals for every player)
             const rankedKills = this.ranks.get('kills');
             const rankedDeaths = this.ranks.get('deaths');
             
             const KDRatios = rankedKills.map(({gamertag, total, team}) => {
                 const kills = total;
-                const deaths = rankedDeaths.find( player => gamertag === player.gamertag ).total
+                const deaths = (rankedDeaths.find( player => gamertag === player.gamertag )).total
                 
                 let KDRatio;
-                if(deaths === 0) KDRatio = kills
-                else KDRatio = Math.round((kills/deaths)*100)/100
+                if(deaths === 0) KDRatio = kills;
+                else KDRatio = Math.round((kills/deaths)*100)/100;
 
                 return {
                     gamertag,

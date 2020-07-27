@@ -13,7 +13,7 @@ export const names = {
         toDisplay:'true'
     },
     sessionPhrase: {
-        display:'session phrase',
+        display:'Phrase',
         id:'sessionPhrase',
         toDisplay:'true'
     }
