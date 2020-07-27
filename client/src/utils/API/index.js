@@ -22,8 +22,11 @@ export default {
         })
     },
     async connectSession(formData) {
-        console.log(formData);
         const { sessionPhrase } = formData;
-        return await fetch(`/api/sessions/${sessionPhrase}`)
+        return await fetch(`/api/sessions/phrase/${sessionPhrase}`)
+    },
+    async getSession(formData) {
+        const { _id } = formData;
+        return await fetch(`/api/sessions/id/${_id}`)
     }
 }

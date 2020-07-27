@@ -1,4 +1,3 @@
-import xboxControllerWhite from './images/xbox-controller-white.jpg';
 import sebationDcController from './images/sebastian-dc-controller.jpg';
 
 export const colours = {

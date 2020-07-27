@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { useBackgroundImageRouter, useLiftState } from 'grass-roots-react';
+import { useBackgroundImageRouter } from 'grass-roots-react';
 import Header from './components/Header';
 import Session from './pages/Session';
 import Home from './pages/Home';
@@ -20,11 +20,12 @@ export default function App() {
       .then(response => response.json())
       .then(session => {
 
-          if(session.length === 1) { // found unique session
-            setSessionID(session[0]._id);
-          } else {
-            setSessionID(undefined);
-          }
+        if(session.length === 1) { // found unique session
+          setSessionID(session[0]._id);
+        } else {
+          setSessionID(undefined);
+        }
+
       })
       .catch(error => {
           console.log(error) // catch any errors
@@ -33,7 +34,7 @@ export default function App() {
 
   useEffect(() => {
       if(sessionID){
-        window.location.pathname = '/session'
+        window.location.pathname = `/session/${sessionID}`
       }
   },[sessionID])
 
@@ -47,10 +48,9 @@ export default function App() {
             <Route exact path={["/", "/home"]}>
               <Home connectSession={connectSession}/>
             </Route>
-            <Route
-              exact path="/session"
-              render={routeProps => <Session {...routeProps} sessionID={sessionID} />}
-            />
+            <Route exact path='/session/:sessionID'>
+              <Session sessionID={sessionID}/>
+            </Route>
             <Route>
               <NotFound/>
             </Route>

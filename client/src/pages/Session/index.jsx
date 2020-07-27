@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Container, FormContainer, SearchBar, SubmitButton, ShowOnClick, InlineContainer, useLiftState } from 'grass-roots-react';
+import { useParams } from 'react-router-dom';
+import { Button, Container, FormContainer, SearchBar, SubmitButton, ShowOnClick, useLiftState } from 'grass-roots-react';
 import { colours, names } from '../../content';
 import Rank from '../../components/Rank';
 import API from '../../utils/API';
 const { sessionName } = names;
 const { salmon } = colours;
 
-export default function Session({sessionID}) {
-  console.log('SESSION ID:',sessionID);
-  const [ thisSession ] = useState(sessionID);
+export default function Session() {
+
+  const { sessionID } = useParams()
+  console.log(sessionID);
+
   const [ liftedStates, liftUpState ] = useLiftState();
   const [ disableCreateSession, setDisableCreateSession ] = useState(false);
   const [ disableAddGame, setDisableAddGame ] = useState(true);
-  const [ gamertags, setGamertags ] = useState([]);
+  const [ currentSession, setCurrentSession ] = useState(undefined);
 
   function createNewSession(formData){
 
@@ -36,27 +39,40 @@ export default function Session({sessionID}) {
 
   function addGame(){
     setDisableAddGame(true)
-    API.createGame(thisSession)
+    API.createGame(sessionID)
     .then(response => response.json())
     .then(session => {
       console.log('Session:',session);
-      setGamertags(session.ranks.KDRatios)
-      setDisableAddGame(false) //re-enable button to add another game
+      setCurrentSession(session)
+      setDisableAddGame(false) // re-enable button to add another game
     })
     .catch(error => {
       console.log(error) // catch any errors
     });
   }
-  useEffect(() => console.log(thisSession),[thisSession])
-  useEffect(()=>console.log(disableCreateSession),[disableCreateSession])
-  useEffect(()=>console.log(liftedStates),[liftedStates])
+
+  useEffect(() => {
+    API.getSession({_id:sessionID})
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      setCurrentSession(data[0]);
+      console.log('line 60 useEffect',currentSession);
+    })
+    .catch(error => console.log(error.response))
+  },[])
+
+  useEffect(() => console.log('line 65 useEffect:',currentSession),[currentSession])
 
 
   return (
     <>
     <Container>
+
       <ul style={{margin:'0 auto',position:'relative'}}>
-      	{gamertags.map(({gamertag,team},index) => (<Rank rank={index+1} text={gamertag} team={team} key={index}/>))}
+      	{currentSession? currentSession.ranks.KDRatios.map(
+      ({gamertag,team},index) => (<Rank rank={index+1} text={gamertag} team={team} key={index}/>)
+    ):null}
       </ul>
 
       <FormContainer onSubmit={createNewSession}>
