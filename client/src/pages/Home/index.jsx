@@ -14,7 +14,7 @@ export default function Home({connectSession}){
                 <SearchBar
                     name={sessionPhrase}
                     color={sessionColour}
-                    placeholder="coke plethora afraid..."
+                    placeholder="unruly chivalry basically..."
                 />
                 <SubmitButton
                     text='Connect'
