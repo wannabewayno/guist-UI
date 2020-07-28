@@ -28,10 +28,17 @@ export default function Session() {
     <Container>
 
       <ul style={{margin:'0 auto',position:'relative'}}>
-      	{currentSession? currentSession.ranks.KDRatios.map(
-          ({gamertag,team},index) => 
-            (<Rank rank={index+1} text={gamertag} team={team} key={index}/>)
-        ):null}
+        {currentSession? 
+          currentSession.ranks.KDRatios.map(
+            ({gamertag,team,total},index) => 
+              (<Rank
+                rank={index+1}
+                text={gamertag}
+                score={total}
+                team={team}
+                key={index}
+              />)
+          ):null}
       </ul>
 
     </Container>

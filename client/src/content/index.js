@@ -2,8 +2,8 @@ import sebationDcController from './images/sebastian-dc-controller.jpg';
 
 export const colours = {
     salmon:'rgb(255,125,125)',
-    red:'hsl(0,80%,60%)',
-    blue:'hsl(240,80%,60%)'
+    red:'hsl(0,100%,50%)',
+    blue:'hsl(240,100%,50%)'
 }
 
 export const names = {
