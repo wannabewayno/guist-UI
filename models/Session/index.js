@@ -92,7 +92,7 @@ sessionSchema.pre('save', function(next){
             })
             // save this into our schema
             // no need to sort it, sorting will happen in the next pre-hook
-            this.ranks.set('KDRatios',KDRatios);
+            this.ranks.set('K/D Ratios',KDRatios);
         }
     }
     next()

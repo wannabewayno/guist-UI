@@ -41,5 +41,5 @@ export const containerStyle = {
     width:'225px',
     position:'relative',
     textAlign:'center',
-    margin:'2.5px auto',
+    margin:'5px auto',
 }
