@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container } from 'grass-roots-react';
 import Rank from '../../components/Rank';
+import GraphContainer from '../../components/GraphContainer';
+import Tabs from '../../components/Tabs';
 import API from '../../utils/API';
 
 export default function Session() {
@@ -26,7 +28,8 @@ export default function Session() {
   return (
     <>
     <Container>
-
+      <Tabs/>
+      <h3 style={{fontSize:'20px'}}>Rank</h3>
       <ul style={{margin:'0 auto',position:'relative'}}>
         {currentSession? 
           currentSession.ranks.KDRatios.map(
@@ -40,6 +43,8 @@ export default function Session() {
               />)
           ):null}
       </ul>
+
+      <GraphContainer/>
 
     </Container>
     </>

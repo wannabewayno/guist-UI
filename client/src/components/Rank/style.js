@@ -17,28 +17,29 @@ const sharedStyle = {
 export const gamertagStyle = {
     ...sharedStyle,
     backgroundColor:'rgb(255,125,125)',
-    width:'145px',
+    width:'65%',
 }
 
 export const numberStyle = {
     ...sharedStyle,
     borderBottomLeftRadius:'5px',
     borderTopLeftRadius:'5px',
-    width:'40px',
-}
-
-export const containerStyle = {
-    ...flex,
-    padding:'0',
-    height:`30px`,
-    position:'relative',
-    textAlign:'center',
-    margin:'5px auto',
+    width:'17.5%',
 }
 
 export const scoreStyle = {
     ...sharedStyle,
     borderBottomRightRadius:'5px',
     borderTopRightRadius:'5px',
-    width:'40px'
+    width:'17.5%'
+}
+
+export const containerStyle = {
+    ...flex,
+    padding:'0',
+    height:'30px',
+    width:'225px',
+    position:'relative',
+    textAlign:'center',
+    margin:'2.5px auto',
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import { FormContainer, SearchBar, SubmitButton, Container } from 'grass-roots-react';
-import { names } from '../../content';
+import { names, colours } from '../../content';
 const { sessionPhrase } = names; 
+const { sessionColour } = colours
 
 export default function Home({connectSession}){
 
@@ -12,7 +13,8 @@ export default function Home({connectSession}){
             <FormContainer onSubmit={connectSession}>
                 <SearchBar
                     name={sessionPhrase}
-                    color='#FFFFFF'
+                    color={sessionColour}
+                    placeholder="avoid-rupture-hardhat..."
                 />
                 <SubmitButton
                     text='Connect'

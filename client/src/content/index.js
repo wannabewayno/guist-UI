@@ -3,7 +3,8 @@ import sebationDcController from './images/sebastian-dc-controller.jpg';
 export const colours = {
     salmon:'rgb(255,125,125)',
     red:'hsl(0,100%,50%)',
-    blue:'hsl(240,100%,50%)'
+    blue:'hsl(240,100%,50%)',
+    sessionColour:'hsl(0,0%,70%)'
 }
 
 export const names = {
@@ -20,7 +21,7 @@ export const names = {
 }
 
 export const backgroundImageMap = {
-    '/':{ image: sebationDcController, positionX:'center', positionY:'20vh'}
+    '/':{ image: sebationDcController, positionX:'center', positionY:'10vh'}
 }
 
 export const gamertags = ['lettuce da FSR','webbyboi','cumnigget','downed yogurt','xXbluebezXx','tooMuch4yaMum','xXNoScopezXx','bruh','HOCANINOGLU']
