@@ -46,9 +46,7 @@ sessionSchema.pre('save', async function(next){
                 const total = stats[stat];
 
                 let rankArray = this.ranks.get(stat)
-                console.log('SHOULD RETURN TRUE:',rankArray.some(rank => rank.gamertag === gamertag));
                 if(rankArray.some(rank => rank.gamertag === gamertag)){
-                    console.log(['EVERY OTHER GAME']);
                     rankArray = rankArray.map( rank => {
                         if(rank.gamertag === gamertag){
                             const newTotal = rank.total + total;
@@ -92,7 +90,7 @@ sessionSchema.pre('save', function(next){
             })
             // save this into our schema
             // no need to sort it, sorting will happen in the next pre-hook
-            this.ranks.set('K/D Ratios',KDRatios);
+            this.ranks.set('K/D',KDRatios);
         }
     }
     next()

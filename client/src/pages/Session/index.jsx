@@ -28,27 +28,15 @@ export default function Session() {
 
   return (
     <>
-    <Container>
+    <Container style={{marginTop:'2rem'}}>
       <Tabs
         tabs={
           currentSession?
             Object.keys(currentSession.ranks).map(key => (
-              { text:key.capitalization(), active:key==='kills'})):undefined}
+              { text:key.capitalization(), key, active:key==='kills'}))
+          :undefined}
+          data={currentSession?currentSession.ranks:undefined}
       />
-      <h3 style={{fontSize:'20px'}}>Rank</h3>
-      <ul style={{margin:'0 auto',position:'relative'}}>
-        {currentSession? 
-          currentSession.ranks['K/D Ratios'].map(
-            ({gamertag,team,total},index) => 
-              (<Rank
-                rank={index+1}
-                text={gamertag}
-                score={total}
-                team={team}
-                key={index}
-              />)
-          ):null}
-      </ul>
 
       <GraphContainer/>
 

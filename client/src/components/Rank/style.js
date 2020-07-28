@@ -11,7 +11,7 @@ const sharedStyle = {
     border:'1.5px solid rgb(255,125,125)',
     whiteSpace:'nowrap',
     height:'100%',
-    fontSize:'100%'
+    fontSize:'120%'
 }
 
 export const gamertagStyle = {
@@ -37,8 +37,8 @@ export const scoreStyle = {
 export const containerStyle = {
     ...flex,
     padding:'0',
-    height:'30px',
-    width:'225px',
+    height:'40px',
+    width:'260px',
     position:'relative',
     textAlign:'center',
     margin:'5px auto',
