@@ -11,5 +11,5 @@ module.exports = phraseLength => {
         )
     }
     // map randomIndexes to words, join them with '-' and return it
-    return randomIndexes.map(randomIndex => wordlist[randomIndex]).join('-');
+    return randomIndexes.map(randomIndex => wordlist[randomIndex]).join(' ');
 }

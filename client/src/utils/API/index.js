@@ -23,7 +23,7 @@ export default {
     },
     async connectSession(formData) {
         const { sessionPhrase } = formData;
-        return await fetch(`/api/sessions/phrase/${sessionPhrase}`)
+        return await fetch(`/api/sessions/phrase/${sessionPhrase.toLowerCase()}`)
     },
     async getSession(formData) {
         const { _id } = formData;
