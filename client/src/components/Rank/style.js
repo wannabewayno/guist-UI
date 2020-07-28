@@ -11,13 +11,13 @@ const sharedStyle = {
     border:'1.5px solid rgb(255,125,125)',
     whiteSpace:'nowrap',
     height:'100%',
-    fontSize:'120%'
+    fontSize:'110%'
 }
 
 export const gamertagStyle = {
     ...sharedStyle,
     backgroundColor:'rgb(255,125,125)',
-    width:'65%',
+    width:'55%',
 }
 
 export const numberStyle = {
@@ -31,14 +31,14 @@ export const scoreStyle = {
     ...sharedStyle,
     borderBottomRightRadius:'5px',
     borderTopRightRadius:'5px',
-    width:'17.5%'
+    width:'27.5%'
 }
 
 export const containerStyle = {
     ...flex,
     padding:'0',
     height:'40px',
-    width:'260px',
+    width:'100%',
     position:'relative',
     textAlign:'center',
     margin:'5px auto',

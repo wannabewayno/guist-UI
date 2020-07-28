@@ -2,12 +2,12 @@
 const flex = {
     display:'flex',
     alignItems:'flex-end',
-    justifyContent:'center',
+    justifyContent:'space-evenly',
 }
 
 export const containerStyle = {
     ...flex,
-    width:'300px',
+    width:'100%',
     margin:'0 auto',
 }
 
@@ -22,7 +22,7 @@ export const buttonStyle = {
 
 export const activeStyle = {
     ...buttonStyle,
-    fontSize:'32px',
+    fontSize:'36px',
     textDecoration:'underline',
     color:'rgb(0,0,0,1)',
 }
