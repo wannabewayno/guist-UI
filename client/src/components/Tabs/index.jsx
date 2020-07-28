@@ -6,8 +6,7 @@ import Rank from '../Rank';
 ExtendArray();
 
 export default ({tabs=[],data={}}) => {
-    console.log(tabs);
-    console.log(data);
+    
     let initialTab;
     const buttons = tabs.map(({text,key,icon,active},index,array) => {
 
@@ -39,9 +38,6 @@ export default ({tabs=[],data={}}) => {
             key:clickedButton.value,
         }
         let { pass, fail } = buttons.separate(button => button.props.children===clickedButton.textContent);
-        
-        console.log(pass);
-        console.log(fail);
 
         // set passed elements to active style
         pass = pass.map(button => cloneElement(

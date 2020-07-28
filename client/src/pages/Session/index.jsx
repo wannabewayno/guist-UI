@@ -29,17 +29,15 @@ export default function Session() {
   return (
     <>
     <Container style={{marginTop:'2rem'}}>
-      <Tabs
-        tabs={
-          currentSession?
-            Object.keys(currentSession.ranks).map(key => (
-              { text:key.capitalization(), key, active:key==='kills'}))
-          :undefined}
-          data={currentSession?currentSession.ranks:undefined}
-      />
-
-      <GraphContainer/>
-
+        <Tabs
+          tabs={
+            currentSession?
+              Object.keys(currentSession.ranks).map(key => (
+                { text:key.capitalization(), key, active:key==='kills'}))
+            :undefined}
+            data={currentSession?currentSession.ranks:undefined}
+        />
+        <GraphContainer ranks={currentSession?currentSession.ranks:undefined}/>
     </Container>
     </>
   );

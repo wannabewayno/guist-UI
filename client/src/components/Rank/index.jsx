@@ -1,7 +1,7 @@
 import React from 'react';
 import { gamertagStyle, numberStyle, containerStyle, scoreStyle } from './style.js';
-import { Color } from 'grass-roots-react';
-import { colours } from '../../content'
+import { colours } from '../../content';
+import parseTeam from '../../utils/parseTeam';
 
 
 function parseRank(rank){
@@ -10,15 +10,6 @@ function parseRank(rank){
         case 2: return '2nd'
         case 3: return '3rd'
         default: return `${rank}th`
-    }
-}
-
-function parseTeam(team){
-    const { salmon, red, blue } = colours
-    switch(team){
-        case 'terrorists': return Color(red)
-        case 'freedom': return Color(blue)
-        default: return salmon
     }
 }
 
