@@ -5,6 +5,8 @@ import Rank from '../../components/Rank';
 import GraphContainer from '../../components/GraphContainer';
 import Tabs from '../../components/Tabs';
 import API from '../../utils/API';
+import WingChart from '../../components/WingChart';
+import generateWingChartData from './generateWingChartData';
 
 ExtendString(); // extends string prototype
 
@@ -26,9 +28,12 @@ export default function Session() {
 
   useEffect(() => console.log('line 65 useEffect:',currentSession),[currentSession])
 
+  const data = generateWingChartData();
+
   return (
     <>
     <Container style={{marginTop:'2rem'}}>
+    <WingChart data={data}/>
         <Tabs
           tabs={
             currentSession?
@@ -37,7 +42,7 @@ export default function Session() {
             :undefined}
             data={currentSession?currentSession.ranks:undefined}
         />
-        <GraphContainer ranks={currentSession?currentSession.ranks:undefined}/>
+                
     </Container>
     </>
   );
