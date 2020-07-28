@@ -28,22 +28,19 @@ export default function Session() {
 
   useEffect(() => console.log('line 65 useEffect:',currentSession),[currentSession])
 
-  const data = generateWingChartData();
+  const data = generateWingChartData(currentSession,'kills',['team','freedom']);
 
   return (
-    <>
-    <Container style={{marginTop:'2rem'}}>
-    <WingChart data={data}/>
-        <Tabs
-          tabs={
-            currentSession?
-              Object.keys(currentSession.ranks).map(key => (
-                { text:key.capitalization(), key, active:key==='kills'}))
-            :undefined}
-            data={currentSession?currentSession.ranks:undefined}
-        />
-                
-    </Container>
-    </>
+    <div style={{display:'flex',justifyContent:'space-evenly',textAlign:'center', margin:'2rem auto'}}>
+      <Tabs
+        tabs={
+          currentSession?
+            Object.keys(currentSession.ranks).map(key => (
+              { text:key.capitalization(), key, active:key==='kills'}))
+          :undefined}
+          data={currentSession?currentSession.ranks:undefined}
+      />
+      <WingChart data={data} style={{width:'50%'}}/>
+    </div>
   );
 }

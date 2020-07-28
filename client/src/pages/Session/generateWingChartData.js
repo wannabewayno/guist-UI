@@ -1,26 +1,33 @@
 import parseTeam from "../../utils/parseTeam"
+import { ExtendArray } from 'grass-roots-react'
+ExtendArray();
 
+export default (session, dataKey, [ separationKey , separationValue ]) => {
 
+    if(session) { // do nothing is not defined
 
-export default (ranks, dataKey, separationKey) => {
-    return {
-        leftData:[220,120,80,30],
-        rightData:[140,130,60,20],
-        leftBar:{
-          color: parseTeam('terrorists').CSS(),
-          borderColor:'transparent',
-          thickness:'30px',
-          gap:'5px',
-        },
-        rightBar:{
-          color: parseTeam('freedom').CSS(),
-          borderColor:'transparent',
-          thickness:'30px',
-          gap:'5px',
-        },
-        label:{
-          left:'left',
-          right:'right',
+        const { pass , fail } = session.ranks[dataKey].separate(data => data[separationKey]===separationValue)
+
+        return {
+            leftData:fail.map(data => data.total),
+            rightData:pass.map(data => data.total),
+            leftBar:{
+              color: parseTeam('terrorists').CSS(),
+              borderColor:'transparent',
+              thickness:'30px',
+              gap:'5px',
+            },
+            rightBar:{
+              color: parseTeam('freedom').CSS(),
+              borderColor:'transparent',
+              thickness:'30px',
+              gap:'5px',
+            },
+            label:{
+              left:'left',
+              right:'right',
+              chart:'Team Spread',
+            }
         }
-      }
+    } 
 }

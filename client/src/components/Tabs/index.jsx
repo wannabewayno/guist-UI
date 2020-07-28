@@ -96,14 +96,14 @@ export default ({tabs=[],data={}}) => {
     useEffect(()=>setTabs({ allTabs:buttons, currentTab: initialTab }),[tabs])
 
     return (
-        <>
+        <div>
             <div style={containerStyle}>
                 {Tabs.allTabs}
             </div>
             <ul>
                 {displayData()}
             </ul>
-        </>
+        </div>
     )
 }
 
