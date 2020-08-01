@@ -1,4 +1,4 @@
-import sebationDcController from './images/sebastian-dc-controller.jpg';
+import sebastionDcController from './images/sebastian-dc-controller.jpg';
 
 export const colours = {
     salmon:'rgb(255,125,125)',
@@ -21,7 +21,7 @@ export const names = {
 }
 
 export const backgroundImageMap = {
-    '/':{ image: sebationDcController, positionX:'center', positionY:'10vh'}
+    '/':{ image: sebastionDcController, positionX:'center', positionY:'10vh'}
 }
 
 export const gamertags = ['lettuce da FSR','webbyboi','cumnigget','downed yogurt','xXbluebezXx','tooMuch4yaMum','xXNoScopezXx','bruh','HOCANINOGLU']

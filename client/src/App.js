@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Session from './pages/Session';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
-import { backgroundImageMap } from './content'
+import { backgroundImageMap } from './content';
 import API from './utils/API';
 
 export default function App() {
