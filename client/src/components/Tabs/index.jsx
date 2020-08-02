@@ -90,7 +90,6 @@ export default ({tabs=[],data={}}) => {
         }
     }
 
-   
 
     // check for updated props
     useEffect(()=>setTabs({ allTabs:buttons, currentTab: initialTab }),[tabs])

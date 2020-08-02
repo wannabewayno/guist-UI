@@ -10,6 +10,6 @@ module.exports = phraseLength => {
             randomNumber([0,length])
         )
     }
-    // map randomIndexes to words, join them with '-' and return it
+    // map randomIndexes to words, join them with ' ' and return it
     return randomIndexes.map(randomIndex => wordlist[randomIndex]).join(' ');
 }

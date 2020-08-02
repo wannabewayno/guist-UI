@@ -2,16 +2,7 @@ import React from 'react';
 import { gamertagStyle, numberStyle, containerStyle, scoreStyle } from './style.js';
 import { colours } from '../../content';
 import parseTeam from '../../utils/parseTeam';
-
-
-function parseRank(rank){
-    switch(rank){
-        case 1: return '1st'
-        case 2: return '2nd'
-        case 3: return '3rd'
-        default: return `${rank}th`
-    }
-}
+import parseRank from '../../utils/parseRank';
 
 export default function Rank({ text, rank, team, score }) {
 

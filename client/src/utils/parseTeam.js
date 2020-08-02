@@ -6,6 +6,6 @@ export default team => {
     switch(team){
         case 'terrorists': return Color(red)
         case 'freedom': return Color(blue)
-        default: return salmon
+        default: return Color(salmon)
     }
 }

@@ -26,10 +26,12 @@ export default ({data,style}) => {
             <div style={{...containerStyle,...style}}>
                 {/* left data */}
                 <div style={leftStyle}>
+        <h3 style={{alignSelf:'center'}}>{left}</h3>
                     {leftData.map((data,index) =>(<div style={{...leftBarStyle,width:`${data}%`}} key={index}></div>))}
                 </div>
                 {/* right data */}
                 <div style={rightStyle}>
+        <h3 style={{alignSelf:'center'}}>{right}</h3>
                     {rightData.map((data,index) =>(<div style={{...rightBarStyle,width:`${data}%`}} key={index}></div>))}
                 </div>
             </div>
