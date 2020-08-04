@@ -28,7 +28,7 @@ export default function Session() {
 
   useEffect(() => console.log('line 65 useEffect:',currentSession),[currentSession])
 
-  const data = generateWingChartData(currentSession,'kills',['team','freedom']);
+  const data = generateWingChartData(currentSession,'kills',['team','capitalists']);
 
   return (
       <Container>
