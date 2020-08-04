@@ -1,4 +1,4 @@
 module.exports = function() {
-    const teams = ['terrorists','freedom'];
+    const teams = ['capitalists','terrorists'];
     return teams[Math.floor(Math.random()*teams.length)];
 }
