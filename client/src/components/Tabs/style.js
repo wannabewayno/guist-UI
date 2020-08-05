@@ -22,7 +22,7 @@ export const buttonStyle = {
 
 export const activeStyle = {
     ...buttonStyle,
-    fontSize:'36px',
+    fontSize:'34px',
     textDecoration:'underline',
     color:'rgb(0,0,0,1)',
 }
